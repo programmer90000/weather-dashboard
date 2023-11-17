@@ -1,0 +1,20 @@
+Use the 5 Day Weather Forecast API from the Open Weather Map website
+
+Ask the user to search for a city
+If the city the user searches for is not found, return an error message. Go back to line 1
+If the city the user searches for is found, run the following lines:
+Save the city name to the local storage
+Show the city name
+Show the current date
+Show an icon representing the current weather conditions
+Show the current temperature
+Show the current humidity
+Show the current wind speed
+Add the city to the search history
+
+For the next 5 days, display a card for each card
+Each card should contain the date of that day
+Each card should contain an icon representing the predicted weather for that day
+Each card should contain the predicted temperature for that day
+Each card should contain the predicted wind speed for that day
+Each card should contain the predicted humidity for that day
