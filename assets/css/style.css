@@ -12,3 +12,30 @@ header {
     padding: 15px 0;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
+#city-list {
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 12%;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #000000;
+}
+
+#city-input {
+    width: 100%;
+    margin-top: 5px;
+    padding: 5px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+
+#city-search-button {
+    display: block;
+    width: 100%;
+    background-color: #5098E6;
+    color: #FFFFFF;
+    margin-top: 5px;
+    padding: 5px 0;
+    border: none;
+    border-radius: 5px;
+}
