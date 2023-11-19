@@ -17,6 +17,9 @@ header {
     margin-top: 20px;
     margin-left: 20px;
     width: 12%;
+}
+
+#search-box {
     padding-bottom: 10px;
     border-bottom: 1px solid #000000;
 }
@@ -38,4 +41,16 @@ header {
     padding: 5px 0;
     border: none;
     border-radius: 5px;
+}
+
+.button {
+    display: block;
+    width: 100%;
+    background-color: #aeaeae;
+    color: #000000;
+    margin-top: 5px;
+    padding: 8px 0;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
