@@ -16,7 +16,7 @@ function getWeatherData(cityName) {
             let lat = data[0].lat;
             let lon = data[0].lon;
 
-        fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiId}`)
+        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiId}`)
             .then(response => response.json())
             .then(data => {
                 if (data) {
@@ -29,7 +29,7 @@ function getWeatherData(cityName) {
                         city_list.append(button);
                     }
                 }
-            });
+            })
         }
     });
 }
