@@ -29,9 +29,11 @@ function getWeatherData(cityName) {
                         city_list.append(button);
 
                         getWeatherInformationForToday(data);
+                        fiveDayForecast(data);
                     }
                 }
             })
+
         }
     });
 }
@@ -65,4 +67,28 @@ function getWeatherInformationForToday (data) {
     current_weather.append(temp);
     current_weather.append(wind);
     current_weather.append(humidity);
+}
+
+function fiveDayForecast(cityName) {
+    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${apiId}`)
+    .then(response => response.json())
+    .then(data => {
+        if (data[0]) {
+            let lat = data[0].lat;
+            let lon = data[0].lon;
+
+        fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiId}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data) {
+                    let arrayOfValues = data.list;
+                    let arrayOfIndexes = [8, 16, 24, 32, 39];
+                    let filterdArray = arrayOfValues.filter((obj, index) => {
+                        return arrayOfIndexes.includes(index);
+                    })
+                    console.log(filterdArray);
+                }
+            })
+        }
+    });
 }
