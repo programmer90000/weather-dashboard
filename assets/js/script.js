@@ -1,4 +1,4 @@
-let apiId = 'c84c2c41dab775fe126d45deb0abaaef';
+let apiId = 'a26e4a3da85869a39cfad126f672ff04';
 let click = document.getElementById("city-search-button");
 let cityArray = [];
 
