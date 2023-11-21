@@ -44,12 +44,11 @@ function getWeatherInformationForToday (data) {
     
     let h1 = document.createElement("h1");
 
-
     let icon = data.weather[0].icon;
     let iconURL = `https://openweathermap.org/img/wn/${icon}.png`;
     let iconImage = document.createElement('img');
     iconImage.src = iconURL;
-    iconImage.style.filter = "brightness(50%)"
+    iconImage.style.filter = "brightness(50%)";
 
     let currentDate = new dayjs().format("DD/MM/YYYY");
     h1.innerText = data.name + " (" + currentDate +") ";
@@ -70,6 +69,9 @@ function getWeatherInformationForToday (data) {
 }
 
 function fiveDayForecast(cityName) {
+    let futureWeather = document.getElementById("future-weather");
+    futureWeather.innerHTML = "";
+
     fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${apiId}`)
     .then(response => response.json())
     .then(data => {
@@ -81,12 +83,47 @@ function fiveDayForecast(cityName) {
             .then(response => response.json())
             .then(data => {
                 if (data) {
-                    let arrayOfValues = data.list;
-                    let arrayOfIndexes = [8, 16, 24, 32, 39];
-                    let filterdArray = arrayOfValues.filter((obj, index) => {
-                        return arrayOfIndexes.includes(index);
+                    console.log(data.list);
+                    let arrayOfWeather = data.list;
+                    let daysToShow = [8, 16, 24, 32, 39];
+                    let filterdArrayOfWeather = arrayOfWeather.filter((obj, index) => {
+                        return daysToShow.includes(index);
                     })
-                    console.log(filterdArray);
+
+                    for (let i = 0; i < filterdArrayOfWeather.length; i++) {
+                        let card = document.createElement("div");
+
+                        let date_h3_tag = document.createElement("h3");
+                        let date_text = filterdArrayOfWeather[i].dt_txt.split(' ')[0];
+                        date_text = date_text.split("-");
+                        let day = date_text[2];
+                        let month = date_text[1];
+                        let year = date_text[0]
+                        date_text = day + "/" + month + "/" + year;
+                        date_h3_tag.innerText = date_text;
+
+                        let icon = filterdArrayOfWeather[i].weather[0].icon;
+                        let iconURL = `https://openweathermap.org/img/wn/${icon}.png`;
+                        let iconImage = document.createElement('img');
+                        iconImage.src = iconURL;
+
+                        let temp = document.createElement("p");
+                        temp.innerText = "Temp: " + filterdArrayOfWeather[i].main.temp + " C";
+
+                        let wind = document.createElement("p");
+                        wind.innerText = "Wind: " + filterdArrayOfWeather[i].wind.speed + " KPH";
+
+                        let humidity = document.createElement("p");
+                        humidity.innerText = "Humidity: " + filterdArrayOfWeather[i].main.humidity + "%";
+                        
+                        card.append(date_h3_tag);
+                        card.append(iconImage)
+                        card.append(temp);
+                        card.append(wind);
+                        card.append(humidity);
+
+                        futureWeather.append(card);
+                    }
                 }
             })
         }

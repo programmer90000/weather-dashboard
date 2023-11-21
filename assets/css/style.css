@@ -69,3 +69,29 @@ main {
     height: 200px;
     padding: 10px 0 0 10px;
 }
+
+#future-weather {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px 50px;
+}
+
+#future-weather div {
+    display: flex;
+    flex-direction: column;
+    background-color: #2D3E50;
+    color: #FFFFFF;
+    width: 190px;
+    height: 230px;
+}
+
+#future-weather div > * {
+    padding-left: 10px;
+    padding-bottom: 10px;
+    padding-top: 5px;
+}
+
+#future-weather div img {
+    width: 60px;
+}
