@@ -28,9 +28,17 @@ function getWeatherData(cityName) {
                         button.innerText = cityName;
                         city_list.append(button);
 
-                        getWeatherInformationForToday(data);
-                        fiveDayForecast(data);
+                        console.log(city_list);
+                        console.log(city_list.children[1].innerText);
+
+                        button.addEventListener("click", function () {
+                            console.log(button.innerText);
+                            getWeatherData(button.innerText);
+                        })
                     }
+                    
+                    getWeatherInformationForToday(data);
+                    fiveDayForecast(data);
                 }
             })
 
@@ -83,7 +91,6 @@ function fiveDayForecast(cityName) {
             .then(response => response.json())
             .then(data => {
                 if (data) {
-                    console.log(data.list);
                     let arrayOfWeather = data.list;
                     let daysToShow = [8, 16, 24, 32, 39];
                     let filterdArrayOfWeather = arrayOfWeather.filter((obj, index) => {
