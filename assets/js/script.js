@@ -2,6 +2,16 @@ let apiId = 'a26e4a3da85869a39cfad126f672ff04';
 let click = document.getElementById("city-search-button");
 let cityArray = [];
 
+window.onload = function () {
+    if (localStorage.getItem("cityArray")) {
+        cityArray = localStorage.getItem("cityArray");
+        cityArray = cityArray.split(",");
+        for (let i = 0; i < cityArray.length; i++) {
+            generateButtons(cityArray[i]);
+        }
+    }
+}
+
 click.addEventListener('click', function () {
     let cityName = document.getElementById("city-input").value;
     getWeatherData(cityName);
@@ -27,12 +37,10 @@ function getWeatherData(cityName) {
                         button.classList.add("button");
                         button.innerText = cityName;
                         city_list.append(button);
+                        localStorage.setItem("cityArray", cityArray);
 
-                        console.log(city_list);
-                        console.log(city_list.children[1].innerText);
 
                         button.addEventListener("click", function () {
-                            console.log(button.innerText);
                             getWeatherData(button.innerText);
                         })
                     }
@@ -135,4 +143,15 @@ function fiveDayForecast(cityName) {
             })
         }
     });
+}
+
+function generateButtons (text) {
+    let city_list = document.getElementById("city-list");
+    let button = document.createElement("button");
+    button.classList.add("button");
+    button.innerText = text;
+    city_list.append(button);
+    button.addEventListener("click", function () {
+        getWeatherData(button.innerText);
+    })
 }
