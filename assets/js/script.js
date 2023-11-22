@@ -2,6 +2,7 @@ let apiId = 'a26e4a3da85869a39cfad126f672ff04';
 let click = document.getElementById("city-search-button");
 let cityArray = [];
 
+// Get the previously searched cities from the local storage
 window.onload = function () {
     if (localStorage.getItem("cityArray")) {
         cityArray = localStorage.getItem("cityArray");
@@ -18,6 +19,7 @@ click.addEventListener('click', function () {
 });
 
 
+// Get the weather information
 function getWeatherData(cityName) {
     fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${apiId}`)
     .then(response => response.json())
@@ -54,6 +56,7 @@ function getWeatherData(cityName) {
     });
 }
 
+// Get and display the current weather information
 function getWeatherInformationForToday (data) {
     let current_weather = document.getElementById("current-weather");
     current_weather.innerHTML = "";
@@ -84,6 +87,7 @@ function getWeatherInformationForToday (data) {
     current_weather.append(humidity);
 }
 
+// Get and display the weather information for the next 5 days
 function fiveDayForecast(cityName) {
     let futureWeather = document.getElementById("future-weather");
     futureWeather.innerHTML = "";
@@ -145,6 +149,7 @@ function fiveDayForecast(cityName) {
     });
 }
 
+// Generate the buttons for each city
 function generateButtons (text) {
     let city_list = document.getElementById("city-list");
     let button = document.createElement("button");
