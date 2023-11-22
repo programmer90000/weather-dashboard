@@ -21,7 +21,7 @@ click.addEventListener('click', function () {
 
 // Get the weather information
 function getWeatherData(cityName) {
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${apiId}`)
+    fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${apiId}`)
     .then(response => response.json())
     .then(data => {
         if (data[0]) {
@@ -92,7 +92,7 @@ function fiveDayForecast(cityName) {
     let futureWeather = document.getElementById("future-weather");
     futureWeather.innerHTML = "";
 
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${apiId}`)
+    fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${apiId}`)
     .then(response => response.json())
     .then(data => {
         if (data[0]) {
