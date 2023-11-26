@@ -8,10 +8,10 @@
 * [Tests](#tests)
 
 ## Screenshot
-![Header](screenshots/screenshot1.png)
-![Planner blank](screenshots/screenshot2.png)
-![Planner after entering text and pressing the save button](screenshots/screenshot3.png)
-![Planner after the hour changes](screenshots/screenshot4.png)
+![Empty](screenshots/screenshot1.png)
+![After inputing city name](screenshots/screenshot2.png)
+![After inputting second city name](screenshots/screenshot3.png)
+![After reloading page](screenshots/screenshot4.png)
 
 ## Information
 The top of this page contains a header
