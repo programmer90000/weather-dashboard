@@ -1,6 +1,7 @@
 let cityArray = localStorage.getItem("cityArray");
 cityArray = cityArray.split(",");
 
+// Add each previous search to the page
 for (let i = 0; i < cityArray.length; i++) {
     let previousSearches = document.getElementById("previous_searches");
     let h1 = document.createElement("h1");
@@ -10,6 +11,9 @@ for (let i = 0; i < cityArray.length; i++) {
     h1.style.width = "fit-content";
     h1.style.breakInside = "avoid";
     h1.addEventListener("mouseover", () => { h1.style.cursor = "pointer" });
-    h1.addEventListener("click", function () { localStorage.setItem("cityToSearchFor", h1.innerText) });
+    h1.addEventListener("click", function () {
+        localStorage.setItem("cityToSearchFor", h1.innerText);
+        window.location.href = "../index.html";
+    });
     previousSearches.append(h1);
 }
