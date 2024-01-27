@@ -4,6 +4,15 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
 header {
     background: linear-gradient(to left, #200A4C, #3463BC);
     color: #FFFFFF;
@@ -14,6 +23,7 @@ header {
 }
 
 main {
+    flex: 1;
     display: flex;
 }
 
@@ -27,11 +37,9 @@ main {
     max-height: 200px;
     width: 80%;
     overflow: hidden;
-  }
-  
+}
 
 footer {
-    position: absolute;
     width: 100%;
     padding: 30px;
     bottom: 0;
