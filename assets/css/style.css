@@ -95,3 +95,17 @@ main {
 #future-weather div img {
     width: 60px;
 }
+
+footer {
+    position: absolute;
+    width: 100%;
+    padding: 30px;
+    bottom: 0;
+    text-align: center;
+    color: #ffffff;
+    background: linear-gradient(to left, #200A4C, #3463BC);
+}
+
+footer p {
+    margin: 10px;
+}
