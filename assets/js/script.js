@@ -2,8 +2,8 @@ let apiId = 'a26e4a3da85869a39cfad126f672ff04';
 let click = document.getElementById("city-search-button");
 let cityArray = [];
 
-// Get the previously searched cities from the local storage
 window.onload = function () {
+    // Get the previously searched cities from the local storage
     if (localStorage.getItem("cityArray")) {
         cityArray = localStorage.getItem("cityArray");
         cityArray = cityArray.split(",").slice(0, 6);
@@ -11,6 +11,15 @@ window.onload = function () {
             generateButtons(cityArray[i]);
             if (i >= 4) break;
         }
+    }
+
+    // Search for the item the user clicked on in the previous searches page
+    if (localStorage.getItem("cityToSearchFor")) {
+        let cityToSearchFor = localStorage.getItem("cityToSearchFor");
+        document.getElementById("city-input").value = cityToSearchFor;
+        document.getElementById("city-search-button").click();
+        localStorage.removeItem("cityToSearchFor");
+
     }
 }
 
