@@ -49,11 +49,11 @@ function getWeatherData(cityName) {
                                 let button = document.createElement("button");
                                 button.classList.add("button");
                                 button.innerText = cityName;
-                                city_list.append(button);
+                                city_list.insertBefore(button, city_list.children[1]);
                                 localStorage.setItem("cityArray", cityArray);
 
                                 if (city_list.children.length >= 5) {
-                                    city_list.children[1].remove();
+                                    city_list.lastChild.remove();
                                 }
 
                                 button.addEventListener("click", function () {
