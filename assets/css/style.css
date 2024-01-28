@@ -16,10 +16,25 @@ body {
 header {
     background: linear-gradient(to left, #200A4C, #3463BC);
     color: #FFFFFF;
-    text-align: center;
     font-size: 24px;
     padding: 15px 0;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+header #header-links {
+    position: absolute;
+    left: 20px;
+    margin-top: 10px;
+}
+
+header #header-links a {
+    text-decoration: none;
+    color: #FFFFFF;
+    margin: 15px;
+}
+
+header h1 {
+    text-align: center;
 }
 
 main {
