@@ -13,6 +13,8 @@ body {
     flex-direction: column;
 }
 
+/* Start of header */
+
 header {
     background: linear-gradient(to left, #200A4C, #3463BC);
     color: #FFFFFF;
@@ -37,6 +39,10 @@ header h1 {
     text-align: center;
 }
 
+/* End of header */
+
+/* Start of main */
+
 main {
     flex: 1;
     display: flex;
@@ -54,6 +60,10 @@ main {
     overflow: hidden;
 }
 
+/* End of main */
+
+/* Start of footer */
+
 footer {
     width: 100%;
     padding: 30px;
@@ -66,3 +76,5 @@ footer {
 footer p {
     margin: 10px;
 }
+
+/* End of footer */
