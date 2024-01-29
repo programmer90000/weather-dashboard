@@ -6,10 +6,10 @@ window.onload = function () {
     // Get the previously searched cities from the local storage
     if (localStorage.getItem("cityArray")) {
         cityArray = localStorage.getItem("cityArray");
-        cityArray = cityArray.split(",").slice(0, 6);
+        cityArray = cityArray.split(",");
         for (let i = 0; i < cityArray.length; i++) {
             generateButtons(cityArray[i]);
-            if (i >= 4) break;
+            if (i === 4) break;
         }
     }
 
@@ -52,7 +52,7 @@ function getWeatherData(cityName) {
                                 city_list.insertBefore(button, city_list.children[1]);
                                 localStorage.setItem("cityArray", cityArray);
 
-                                if (city_list.children.length >= 5) {
+                                if (city_list.children.length > 6) {
                                     city_list.lastChild.remove();
                                 }
 
